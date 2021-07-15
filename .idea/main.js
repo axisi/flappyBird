@@ -16,8 +16,17 @@ function animate(){
     //ctx.fillRect( 10, temp,50,50);
     bird.update();
     bird.draw();
-    frame+=1;
-    angle+=0.2 ;
+
+    angle+=0.12 ;
+    handleParticles();
+    handleObstacles()
+    console.log(particlesAray.length)
+    hue++;
+    frame++;
+
+
+
+
     requestAnimationFrame(animate);
    // console.log(spacePressed)
 }

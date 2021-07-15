@@ -9,23 +9,25 @@ class Bird {
     }
 
     update(){
-        let curve = Math.sign(angle) * 25;
-        if(this.y  > canvas.height - this.height*3 + curve){
+        let curve = Math.sin(angle) * 20;
+        //console.log(`this.y = ${this.y} canvas.height - this.height*3 + curve = ${canvas.height - this.height*3 + curve} `)
 
-            this.y = canvas.height - this.height*3 + curve ;
+        if(this.y  > canvas.height - (this.height *3) + curve){
+
+            this.y = canvas.height - (this.height *3 )+ curve ;
             this.vy = 0
 
         }else{
             this.vy += this.weight;
-            this.vy *= 0.9
+            this.vy *= 0.9;
             this.y += this.vy;
         }
 
         if(this.y < 0 + this.height){
-            this.y = this.height ;
+            this.y = (this.height *3) + curve ;
             this.vy = 0;
         }
-        if(spacePressed && this. y > this.height * 3 ) this.flap();
+        if(spacePressed && this.y >this.height * 3 ) this.flap();
 
     }
     draw(){
